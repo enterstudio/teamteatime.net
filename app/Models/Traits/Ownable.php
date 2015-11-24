@@ -1,23 +1,23 @@
-<?php namespace App\Models\Traits;
+<?php
 
-use Auth;
+namespace TTT\Models\Traits;
+
+use TTT\Models\User;
 
 trait Ownable
 {
-
     public function owner()
     {
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function getOwnerColumnAttribute()
     {
-        return ( isset( $this->owner_column ) ) ? $this->owner_column : 'user_id';
+        return isset($this->owner_column) ? $this->owner_column : 'user_id';
     }
 
     public function getUserIsOwnerAttribute()
     {
-        return ( Auth::user()->id == $this->ownerColumn );
+        return auth()->user()->id == $this->ownerColumn;
     }
-
 }

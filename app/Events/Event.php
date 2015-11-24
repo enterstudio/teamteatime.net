@@ -1,4 +1,6 @@
-<?php namespace App\Events;
+<?php
+
+namespace TTT\Events;
 
 abstract class Event {
 

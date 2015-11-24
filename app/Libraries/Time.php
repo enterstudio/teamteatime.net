@@ -1,4 +1,6 @@
-<?php namespace App\Libraries;
+<?php
+
+namespace TTT\Libraries;
 
 use Carbon\Carbon;
 

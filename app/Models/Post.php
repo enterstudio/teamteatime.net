@@ -1,17 +1,25 @@
-<?php namespace App\Models;
+<?php
 
-use App\Libraries\Utils;
-use App\Models\Traits\Ago as AgoTrait;
-use App\Models\Traits\Archivable as ArchivableTrait;
-use App\Models\Traits\Ownable as OwnableTrait;
-use App\Models\Traits\Taggable as TaggableTrait;
+namespace TTT\Models;
+
+use Datetime;
 use Eloquent;
 use Markdown;
+use TTT\Libraries\Utils;
+use TTT\Models\Traits\Archivable;
+use TTT\Models\Traits\Ownable;
+use TTT\Models\Traits\Taggable;
 
-class BlogPost extends Eloquent
+class Post extends Eloquent
 {
+    use Archivable, Ownable, Taggable;
 
-    use AgoTrait, ArchivableTrait, OwnableTrait, TaggableTrait;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'blog_posts';
 
     protected $fillable = ['user_id', 'title', 'body'];
 
@@ -35,5 +43,4 @@ class BlogPost extends Eloquent
     {
         return route('blog.post.edit', ['post' => $this->id]);
     }
-
 }

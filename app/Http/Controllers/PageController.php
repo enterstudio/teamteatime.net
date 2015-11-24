@@ -1,97 +1,116 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use App;
-use App\Http\Controllers\Controller;
-use App\Models\Page;
-use Auth;
-use Input;
-use Redirect;
-use View;
+namespace TTT\Http\Controllers;
+
+use Illuminate\Http\Request;
+use TTT\Http\Controllers\Controller;
+use TTT\Models\Page;
 
 class PageController extends Controller
 {
-
+    /**
+     * Create a new page controller instance.
+     */
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
-        $this->repository = App::make('App\Repositories\Pages');
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Resource methods
-    |--------------------------------------------------------------------------
-    */
-
+    /**
+     * GET: Show a list of pages.
+     *
+     * @return \Illuminate\Contracts\View
+     */
     public function _list()
     {
-        $pages = $this->repository->get(['sorted' => false]);
+        $pages = Page::all();
 
-        return View::make('pages.list', ['pages' => $pages]);
+        return view('page.list', compact('pages'));
     }
 
+    /**
+     * GET: Show the default page.
+     *
+     * @return \Illuminate\Contracts\View
+     */
     public function index()
     {
-        $page = $this->repository->findBySlug(config('pages.default'));
+        $page = Page::slug(config('pages.default'))->first();
 
-        return View::make('pages.show', ['page' => $page]);
+        return view('page.show', compact('page'));
     }
 
+    /**
+     * GET: Show a create page form.
+     *
+     * @return \Illuminate\Contracts\View
+     */
     public function create()
     {
-        return View::make('pages.create');
+        return view('page.create');
     }
 
-    public function store()
+    /**
+     * POST: Create a page.
+     *
+     * @param  Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request)
     {
-        $input = array_merge($this->getInput(), ['user_id' => Auth::user()->id]);
+        $page = Page::create($request->only(['title', 'slug', 'content']) + ['user_id' => $request->user->id]);
 
-        $page = $this->repository->create($input);
-
-        return Redirect::to($page->route)->with('success', 'Your page has been created successfully.');
+        return redirect($page->route)->with('success', 'Your page has been created successfully.');
     }
 
+    /**
+     * GET: Show a page.
+     *
+     * @param  string  $slug
+     * @return \Illuminate\Contracts\View
+     */
     public function show($slug)
     {
-        $page = $this->repository->findBySlug($slug);
+        $page = Page::slug($slug)->first();
 
-        return View::make('pages.show', ['page' => $page]);
+        return view('page.show', compact('page'));
     }
 
+    /**
+     * GET: Display an edit page form.
+     *
+     * @param  Page  $page
+     * @return \Illuminate\Contracts\View
+     */
     public function edit(Page $page)
     {
-        return View::make('pages.edit', ['page' => $page]);
+        return view('page.edit', compact('page'));
     }
 
-    public function update(Page $page)
+    /**
+     * PATCH: Update a page.
+     *
+     * @param  Page  $page
+     * @param  Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Page $page, Request $request)
     {
-        $input = $this->getInput();
-        $page->fill($input);
-        $page->save();
+        $page->update($request->only(['title', 'slug', 'content']));
 
-        return Redirect::to($page->route)->with('success', 'Your page has been updated successfully.');
+        return redirect($page->route)->with('success', 'Your page has been updated successfully.');
     }
 
+    /**
+     * DELETE: Delete a page.
+     *
+     * @param  Page  $page
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(Page $page)
     {
         $page->delete();
 
-        return Redirect::to('pages')->with('success', 'Your page has been deleted successfully.');
+        return redirect('pages')->with('success', 'Your page has been deleted successfully.');
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Helper methods
-    |--------------------------------------------------------------------------
-    */
-
-    protected function getInput()
-    {
-        return [
-            'title'     => Input::get('title'),
-            'slug'      => Input::get('slug'),
-            'content'   => Input::get('content')
-        ];
-    }
-
 }

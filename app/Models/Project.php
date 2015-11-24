@@ -4,12 +4,13 @@ namespace TTT\Models;
 
 use Eloquent;
 use TTT\Models\Traits\Ownable;
+use TeamTeaTime\Filer\AttachableTrait;
 
-class Page extends Eloquent
+class Project extends Eloquent
 {
     use Ownable;
 
-    protected $fillable = ['user_id', 'title', 'slug', 'content'];
+    protected $fillable = ['user_id', 'title', 'slug', 'description'];
 
     /**
      * Scope a query to select by slug.
@@ -23,11 +24,11 @@ class Page extends Eloquent
 
     public function getRouteAttribute()
     {
-        return route('pages.show', ['slug' => $this->slug]);
+        return route('project.show', ['slug' => $this->slug]);
     }
 
     public function getEditRouteAttribute()
     {
-        return route('pages.edit', ['pages' => $this->id]);
+        return route('project.edit', ['project' => $this->id]);
     }
 }

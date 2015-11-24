@@ -1,6 +1,8 @@
-<?php namespace App\Http\Controllers\Auth;
+<?php
 
-use App\Http\Controllers\Controller;
+namespace TTT\Http\Controllers\Auth;
+
+use TTT\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;

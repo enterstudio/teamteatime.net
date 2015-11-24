@@ -11,15 +11,14 @@
 		"rtconner/laravel-tagging": "~1.0.2",
 		"graham-campbell/markdown": "~3.0",
 		"barryvdh/laravel-debugbar": "~2.0",
-		"codex/codex": "~1.0@dev",
-		"symfony/yaml": "^2.7"
+		"teamteatime/laravel-filer": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
 			"database"
 		],
 		"psr-4": {
-			"App\\": "app/"
+			"TTT\\": "app/"
 		}
 	},
 	"scripts": {

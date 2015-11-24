@@ -40,10 +40,11 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/pages"><i class="fa fa-files-o fa-fw"></i> Pages</a></li>
+                                        <li><a href="/projects"><i class="fa fa-file-code-o fa-fw"></i> Projects</a></li>
                                         <li><a href="/blog/posts"><i class="fa fa-font fa-fw"></i> Blog Posts</a></li>
                                         <li class="divider"></li>
                                         <li>
-                                            <a href="{!! URL::to('auth/logout') !!}">
+                                            <a href="{{ url('auth/logout') }}">
                                                 <i class="fa fa-power-off fa-fw"></i> Logout
                                             </a>
                                         </li>
@@ -56,13 +57,13 @@
             </div>
         </div>
         <div id="body">
-            @if(isset($__env->getSections()['splash']))
-            <div id="splash">
-                <div class="container">
-                @section('splash')
-                @show
+            @if (isset($__env->getSections()['splash']))
+                <div id="splash">
+                    <div class="container">
+                    @section('splash')
+                    @show
+                    </div>
                 </div>
-            </div>
             @endif
             <div class="container">
             @include('partials.notifications')
@@ -90,18 +91,18 @@
     @section('bottom')
     @show
     <script>
-    $(document).ready(function() {
-        $('#main-nav li a').each(function() {
+    $(document).ready(function () {
+        $('#main-nav li a').each(function () {
             if ($(this).attr('href') === window.location.pathname)
             {
                 $(this).parent('li').addClass('active');
             }
         });
 
-        $('[data-method]:not(.disabled)').on('click', function(event) {
+        $('[data-method]:not(.disabled)').on('click', function (event) {
             $('<form action="' + $(this).data('route') + '" method="POST">' +
             '<input type="hidden" name="_method" value="' + $(this).data('method') + '">' +
-            '<input type="hidden" name="_token" value="{!! Session::getToken() !!}"' +
+            '<input type="hidden" name="_token" value="{{ Session::getToken() }}"' +
             '</form>').submit();
 
             event.preventDefault();

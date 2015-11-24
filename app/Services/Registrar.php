@@ -1,6 +1,8 @@
-<?php namespace App\Services;
+<?php
 
-use App\User;
+namespace TTT\Services;
+
+use TTT\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

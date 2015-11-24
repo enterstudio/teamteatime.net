@@ -141,12 +141,13 @@ return [
         /*
          * Application Service Providers...
          */
+        'TeamTeaTime\Filer\FilerServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-        'App\Providers\AppServiceProvider',
-        'App\Providers\BusServiceProvider',
-        'App\Providers\ConfigServiceProvider',
-        'App\Providers\EventServiceProvider',
-        'App\Providers\RouteServiceProvider',
+        'TTT\Providers\AppServiceProvider',
+        'TTT\Providers\BusServiceProvider',
+        'TTT\Providers\ConfigServiceProvider',
+        'TTT\Providers\EventServiceProvider',
+        'TTT\Providers\RouteServiceProvider',
         'Conner\Tagging\TaggingServiceProvider',
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
 
