@@ -1,8 +1,8 @@
-@extends('layouts.default')
+@extends ('layouts.default')
 
-@section('title', $post->title)
+@section ('title', $post->title)
 
-@section('splash')
+@section ('splash')
 <h1>{{ $post->title }}</h1>
 <span>
     <strong>Written by {{ $post->owner->name }}</strong> {{ $post->created_at->diffForHumans() }}.
@@ -12,7 +12,7 @@
 </span>
 @stop
 
-@section('content')
+@section ('content')
 <div id="blog-post" class="col-md-8 col-md-offset-2">
     @if (Auth::check())
         <div class="text-right">
@@ -53,8 +53,8 @@
 </div>
 @stop
 
-@if(Auth::check())
-    @section('bottom')
-        @include('post.delete')
+@if (Auth::check())
+    @section ('bottom')
+        @include ('partials.modal.delete', ['item' => $post])
     @stop
 @endif

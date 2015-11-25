@@ -23,6 +23,11 @@ class Post extends Eloquent
 
     protected $fillable = ['user_id', 'title', 'body'];
 
+    public function getNameAttribute()
+    {
+        return $this->title;
+    }
+
     public function getBodyParsedAttribute()
     {
         return Markdown::convertToHtml($this->body);
@@ -41,6 +46,11 @@ class Post extends Eloquent
 
     public function getEditRouteAttribute()
     {
-        return route('blog.post.edit', ['post' => $this->id]);
+        return route('admin.post.edit', ['post' => $this->id]);
+    }
+
+    public function getDeleteRouteAttribute()
+    {
+        return route('admin.post.destroy', ['post' => $this->id]);
     }
 }

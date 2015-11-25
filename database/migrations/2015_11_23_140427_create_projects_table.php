@@ -19,6 +19,9 @@ class CreateProjectsTable extends Migration
 			$table->string('title');
 			$table->string('slug');
 			$table->text('description');
+			$table->string('url_github');
+			$table->string('url_demo');
+			$table->string('url_docs_repo');
 			$table->timestamps();
 		});
     }

@@ -21,13 +21,23 @@ class Page extends Eloquent
         return $query->where('slug', $slug);
     }
 
+    public function getNameAttribute()
+    {
+        return $this->title;
+    }
+
     public function getRouteAttribute()
     {
-        return route('pages.show', ['slug' => $this->slug]);
+        return route('page.show', ['slug' => $this->slug]);
     }
 
     public function getEditRouteAttribute()
     {
-        return route('pages.edit', ['pages' => $this->id]);
+        return route('admin.page.edit', ['page' => $this->id]);
+    }
+
+    public function getDeleteRouteAttribute()
+    {
+        return route('admin.page.destroy', ['page' => $this->id]);
     }
 }

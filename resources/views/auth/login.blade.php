@@ -1,12 +1,12 @@
-@extends('layouts.default')
+@extends ('layouts.default')
 
-@section('title', "Log in")
+@section ('title', "Log in")
 
-@section('splash')
+@section ('splash')
 <h1>Log in</h1>
 @stop
 
-@section('content')
+@section ('content')
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">

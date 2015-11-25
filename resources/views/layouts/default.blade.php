@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title') - TeamTeaTime</title>
+    <title>@yield ('title') - TeamTeaTime</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
     <script src="{{ elixir('js/all.js') }}"></script>
@@ -19,16 +19,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">TeamTeaTime</a>
+                    <a class="navbar-brand" href="{{ url('/') }}">TeamTeaTime</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <div id="main-nav">
                         <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/about">About</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/projects">Projects</a></li>
-                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><a href="{{ url('about') }}">About</a></li>
+                            <li><a href="{{ url('blog') }}">Blog</a></li>
+                            <li><a href="{{ url('projects') }}">Projects</a></li>
+                            <li><a href="{{ url('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                     <div id="bar-nav">
@@ -39,9 +39,9 @@
                                         {{ Auth::user()->email }} <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="/pages"><i class="fa fa-files-o fa-fw"></i> Pages</a></li>
-                                        <li><a href="/projects"><i class="fa fa-file-code-o fa-fw"></i> Projects</a></li>
-                                        <li><a href="/blog/posts"><i class="fa fa-font fa-fw"></i> Blog Posts</a></li>
+                                        <li><a href="{{ url('admin/page') }}"><i class="fa fa-files-o fa-fw"></i> Pages</a></li>
+                                        <li><a href="{{ url('admin/project') }}"><i class="fa fa-file-code-o fa-fw"></i> Projects</a></li>
+                                        <li><a href="{{ url('admin/post') }}"><i class="fa fa-font fa-fw"></i> Blog Posts</a></li>
                                         <li class="divider"></li>
                                         <li>
                                             <a href="{{ url('auth/logout') }}">
@@ -60,14 +60,14 @@
             @if (isset($__env->getSections()['splash']))
                 <div id="splash">
                     <div class="container">
-                    @section('splash')
+                    @section ('splash')
                     @show
                     </div>
                 </div>
             @endif
             <div class="container">
-            @include('partials.notifications')
-            @section('content')
+            @include ('partials.notifications')
+            @section ('content')
             @show
             </div>
         </div>
@@ -88,7 +88,7 @@
             </div>
         </div>
     </div>
-    @section('bottom')
+    @section ('bottom')
     @show
     <script>
     $(document).ready(function () {

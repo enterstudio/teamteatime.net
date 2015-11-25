@@ -1,13 +1,13 @@
-@extends('layouts.default')
+@extends ('layouts.default')
 
-@section('title', "Sign up")
+@section ('title', "Sign up")
 
-@section('splash')
+@section ('splash')
 <h1>Sign up</h1>
 @stop
 
-@section('content')
-@if(config('auth.registration.enabled'))
+@section ('content')
+@if (config('auth.registration.enabled'))
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
