@@ -93,8 +93,7 @@
     <script>
     $(document).ready(function () {
         $('#main-nav li a').each(function () {
-            if ($(this).attr('href') === window.location.pathname)
-            {
+            if ($(this).attr('href') === window.location.href ) {
                 $(this).parent('li').addClass('active');
             }
         });

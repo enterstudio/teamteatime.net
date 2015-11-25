@@ -141,7 +141,6 @@ return [
         /*
          * Application Service Providers...
          */
-        'TeamTeaTime\Filer\FilerServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'TTT\Providers\AppServiceProvider',
         'TTT\Providers\BusServiceProvider',

@@ -57,6 +57,10 @@ body {
     #blog-post {
         .body {
             text-align: justify;
+
+            img {
+                width: 100%;
+            }
         }
     }
 }

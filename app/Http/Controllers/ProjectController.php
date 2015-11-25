@@ -8,17 +8,14 @@ use TTT\Models\Project;
 
 class ProjectController extends Controller
 {
-
     /**
-     * GET: Show the default project.
+     * GET: Show an index of projects.
      *
      * @return \Illuminate\Contracts\View
      */
     public function index()
     {
-        $project = Project::slug(config('projects.default'))->first();
-
-        return view('project.show', compact('project'));
+        return view('project.index', ['projects' => Project::orderBy('created_at', 'desc')->get()]);
     }
 
     /**

@@ -10,8 +10,7 @@
 		"guzzlehttp/guzzle": "~4.0",
 		"rtconner/laravel-tagging": "~1.0.2",
 		"graham-campbell/markdown": "~3.0",
-		"barryvdh/laravel-debugbar": "~2.0",
-		"teamteatime/laravel-filer": "dev-master"
+		"barryvdh/laravel-debugbar": "~2.0"
 	},
 	"autoload": {
 		"classmap": [

@@ -6,11 +6,10 @@ use Eloquent;
 use Markdown;
 use TTT\Models\Traits\Ownable;
 use TTT\Models\Traits\Taggable;
-use TeamTeaTime\Filer\AttachableTrait as Attachable;
 
 class Project extends Eloquent
 {
-    use Attachable, Ownable, Taggable;
+    use Ownable, Taggable;
 
     protected $fillable = ['user_id', 'title', 'slug', 'description', 'url_github', 'url_demo', 'url_docs_repo'];
 
