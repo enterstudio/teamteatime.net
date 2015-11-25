@@ -22,7 +22,7 @@ class PostController extends Controller
 
         if (!is_null($tag)) {
             $with['tag'] = $tag;
-            $with['posts'] = Post::withAnyTag([$tag])->get();
+            $with['posts'] = Post::withAnyTag([$tag])->paginate();
         } else {
             $with['posts'] = Post::paginate();
         }
