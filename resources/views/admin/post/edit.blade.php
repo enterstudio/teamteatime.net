@@ -16,12 +16,14 @@
 @stop
 
 @section ('content')
-    <div class="row">
-        <div class="col-xs-12 text-right">
-            <a class="btn btn-success" href="{{ $post->route }}"><i class="fa fa-file-text"></i> View Post</a> <a class="btn btn-danger" href="#delete-item-{{ $post->id }}" data-toggle="modal" data-target="#delete-item-{{ $post->id }}"><i class="fa fa-times"></i> Delete Post</a>
+    @if ($post->exists)
+        <div class="row">
+            <div class="col-xs-12 text-right">
+                <a class="btn btn-success" href="{{ $post->route }}"><i class="fa fa-file-text"></i> View Post</a> <a class="btn btn-danger" href="#delete-item-{{ $post->id }}" data-toggle="modal" data-target="#delete-item-{{ $post->id }}"><i class="fa fa-times"></i> Delete Post</a>
+            </div>
         </div>
-    </div>
-    <hr>
+        <hr>
+    @endif
     <div class="well">
         <form action="{{ $post->exists ? route('admin.post.update', $post->id) : route('admin.post.store') }}" method="post" class="form-horizontal">
             {!! csrf_field() !!}

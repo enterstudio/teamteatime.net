@@ -55,12 +55,6 @@ class PostController extends Controller
      */
     public function show($year, $id = 0, $slug = '')
     {
-        if (!$id) {
-            abort(404);
-        }
-
-        $post = Post::find($id);
-
-        return view('post.show', compact('post'));
+        return view('post.show', ['post' => Post::findOrFail($id)]);
     }
 }

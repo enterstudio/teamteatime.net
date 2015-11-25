@@ -22,11 +22,11 @@
         <hr>
     @endif
 
-    @if (!empty($post->tagged))
+    @if (!$post->tagged->isEmpty())
         <p class="text-center">
             <i class="fa fa-tags fa-fw middle text-muted"></i>
             @foreach ($post->tagged as $tag)
-                <a href="{{ route('blog.tag.index', ['tag' => $tag->tag_slug]) }}" class="label label-primary">{{ $tag->tag_name }}</a>
+                <a href="{{ route('blog.post.tag.index', ['tag' => $tag->tag_slug]) }}" class="label label-primary">{{ $tag->tag_name }}</a>
             @endforeach
         </p>
     @endif

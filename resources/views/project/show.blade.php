@@ -19,7 +19,7 @@
             <hr>
         @endif
 
-        @if (!empty($project->tagged))
+        @if (!$project->tagged->isEmpty())
             <p class="text-center">
                 <i class="fa fa-tags fa-fw middle text-muted"></i>
                 @foreach ($project->tagged as $tag)

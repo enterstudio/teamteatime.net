@@ -33,9 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $tags = Post::getAllTags();
-
-        return view('admin.post.create', compact('tags'));
+        return $this->edit(new Post);
     }
 
     /**
@@ -45,7 +43,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Post::create($request->only(['title', 'body']) + ['user_id' => $request->user->id]);
+        $post = Post::create($request->only(['title', 'body']) + ['user_id' => $request->user()->id]);
 
         if ($request->has('tags')) {
             $post->tag($request->input('tags'));
@@ -76,7 +74,11 @@ class PostController extends Controller
         $post->update($request->only(['title', 'body']));
 
         if ($request->input('tags') != $post->tagList) {
-            $post->retag($request->input('tags'));
+            if (!$request->has('tags')) {
+                $post->untag();
+            } else {
+                $post->retag($request->input('tags'));
+            }
         }
 
         return redirect($post->route)->with('success', 'Your blog post has been updated successfully.');

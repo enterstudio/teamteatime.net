@@ -33,7 +33,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('page.create');
+        return $this->edit(new Page);
     }
 
     /**

@@ -77,7 +77,11 @@ class ProjectController extends Controller
         $project->update($request->only(['title', 'slug', 'description', 'url_github', 'url_demo', 'url_docs_repo']));
 
         if ($request->input('tags') != $project->tagList) {
-            $project->retag($request->input('tags'));
+            if (!$request->has('tags')) {
+                $project->untag();
+            } else {
+                $project->retag($request->input('tags'));
+            }
         }
 
         return redirect($project->route)->with('success', 'Your project has been updated successfully.');
