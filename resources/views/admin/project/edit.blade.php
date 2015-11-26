@@ -31,56 +31,56 @@
 
             <div class="form-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Title</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="title" value="{{ !is_null(old('title')) ? old('title') : $project->title }}" type="text" class="form-control" placeholder="Title">
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="title" value="{{ !is_null(old('title')) ? old('title') : $project->title }}" type="text" class="form-control">
                     {!! ($errors->has('title') ? $errors->first('title') : '') !!}
                 </div>
             </div>
 
             <div class="form-group{{ ($errors->has('slug')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="slug">Slug</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="slug" value="{{ !is_null(old('slug')) ? old('slug') : $project->slug }}" type="text" class="form-control" placeholder="Slug">
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="slug" value="{{ !is_null(old('slug')) ? old('slug') : $project->slug }}" type="text" class="form-control">
                     {!! ($errors->has('slug') ? $errors->first('slug') : '') !!}
                 </div>
             </div>
 
             <div class="form-group{{ ($errors->has('description')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="description">Description</label>
-                <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
-                    <textarea name="description" type="text" class="form-control" data-provide="markdown" placeholder="Description" rows="10">{!! !is_null(old('description')) ? old('description') : $project->description !!}</textarea>
+                <div class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
+                    <textarea name="description" type="text" class="form-control" data-provide="markdown" rows="10">{!! !is_null(old('description')) ? old('description') : $project->description !!}</textarea>
                     {!! ($errors->has('description') ? $errors->first('description') : '') !!}
                 </div>
             </div>
 
             <div class="form-group{{ ($errors->has('url_github')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="url_github">GitHub URL</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="url_github" value="{{ !is_null(old('url_github')) ? old('url_github') : $project->url_github }}" type="text" class="form-control" placeholder="GitHub URL">
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="url_github" value="{{ !is_null(old('url_github')) ? old('url_github') : $project->url_github }}" type="text" class="form-control">
                     {!! ($errors->has('url_github') ? $errors->first('url_github') : '') !!}
                 </div>
             </div>
 
             <div class="form-group{{ ($errors->has('url_demo')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="url_demo">Demo URL</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="url_demo" value="{{ !is_null(old('url_demo')) ? old('url_demo') : $project->url_demo }}" type="text" class="form-control" placeholder="Demo URL">
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="url_demo" value="{{ !is_null(old('url_demo')) ? old('url_demo') : $project->url_demo }}" type="text" class="form-control">
                     {!! ($errors->has('url_demo') ? $errors->first('url_demo') : '') !!}
                 </div>
             </div>
 
-            <div class="form-group{{ ($errors->has('url_docs_repo')) ? ' has-error' : '' }}">
-                <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="url_docs_repo">Documentation Repo URL</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="url_docs_repo" value="{{ !is_null(old('url_docs_repo')) ? old('url_docs_repo') : $project->url_docs_repo }}" type="text" class="form-control" placeholder="Documentation Repo URL">
-                    {!! ($errors->has('url_docs_repo') ? $errors->first('url_docs_repo') : '') !!}
+            <div class="form-group{{ ($errors->has('url_docs')) ? ' has-error' : '' }}">
+                <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="url_docs_repo">Documentation URL</label>
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="url_docs" value="{{ !is_null(old('url_docs')) ? old('url_docs_repo') : $project->url_docs }}" type="text" class="form-control">
+                    {!! ($errors->has('url_docs') ? $errors->first('url_docs') : '') !!}
                 </div>
             </div>
 
             <div class="form-group{{ ($errors->has('tags')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="tags">Tags</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="tags" value="{{ !is_null(old('tags')) ? old('tags') : $project->tagList }}" type="text" class="form-control" placeholder="Tags">
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="tags" value="{{ !is_null(old('tags')) ? old('tags') : $project->tagList }}" type="text" class="form-control">
                     {!! ($errors->has('tags') ? $errors->first('tags') : '') !!}
                 </div>
             </div>

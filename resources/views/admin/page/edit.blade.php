@@ -31,16 +31,16 @@
 
             <div class="form-group{{ ($errors->has('title')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="title">Title</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="title" id="title" value="{{ !is_null(old('title')) ? old('title') : $page->title }}" type="text" class="form-control" placeholder="Title">
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="title" id="title" value="{{ !is_null(old('title')) ? old('title') : $page->title }}" type="text" class="form-control">
                     {!! ($errors->has('title') ? $errors->first('title') : '') !!}
                 </div>
             </div>
 
             <div class="form-group{{ ($errors->has('slug')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="slug">Slug</label>
-                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-10">
-                    <input name="slug" id="slug" value="{{ !is_null(old('slug')) ? old('slug') : $page->slug }}" type="text" class="form-control" placeholder="Slug">
+                <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
+                    <input name="slug" id="slug" value="{{ !is_null(old('slug')) ? old('slug') : $page->slug }}" type="text" class="form-control">
                     {!! ($errors->has('slug') ? $errors->first('slug') : '') !!}
                 </div>
             </div>
@@ -48,7 +48,7 @@
             <div class="form-group{{ ($errors->has('content')) ? ' has-error' : '' }}">
                 <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="content">Content</label>
                 <div class="col-lg-6 col-md-8 col-sm-9 col-xs-12">
-                    <textarea name="content" id="content" class="form-control" placeholder="Page content" rows="8">{!! !is_null(old('content')) ? old('content') : $page->content !!}</textarea>
+                    <textarea name="content" id="content" class="form-control" rows="8">{!! !is_null(old('content')) ? old('content') : $page->content !!}</textarea>
                     {!! ($errors->has('content') ? $errors->first('content') : '') !!}
                 </div>
             </div>

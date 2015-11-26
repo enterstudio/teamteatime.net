@@ -27,4 +27,12 @@
     #body {
         font-size: 1.7rem;
     }
+
+    .btn-toolbar:after, .btn-toolbar:before {
+        content: none;
+    }
+
+    textarea.md-input {
+        padding: 2rem;
+    }
 }

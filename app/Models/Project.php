@@ -11,7 +11,7 @@ class Project extends Eloquent
 {
     use Ownable, Taggable;
 
-    protected $fillable = ['user_id', 'title', 'slug', 'description', 'url_github', 'url_demo', 'url_docs_repo'];
+    protected $fillable = ['user_id', 'title', 'slug', 'description', 'url_github', 'url_demo', 'url_docs'];
 
     /**
      * Scope a query to select by slug.
