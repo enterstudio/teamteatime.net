@@ -15,14 +15,14 @@
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-primary">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="{{ url('/') }}">TeamTeaTime</a>
                 </div>
-                <div class="collapse navbar-collapse">
+                <div id="navbar-primary" class="collapse navbar-collapse">
                     <div id="main-nav">
                         <ul class="nav navbar-nav">
                             <li><a href="{{ url('/') }}">Home</a></li>
@@ -94,7 +94,8 @@
     <script>
     $(document).ready(function () {
         $('#main-nav li a').each(function () {
-            if ($(this).attr('href') === window.location.href) {
+            var href = this.pathname;
+            if (href === window.location.pathname) {
                 $(this).parent('li').addClass('active');
             }
         });

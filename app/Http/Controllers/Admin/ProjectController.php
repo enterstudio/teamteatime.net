@@ -84,7 +84,7 @@ class ProjectController extends Controller
             }
         }
 
-        return redirect($project->route)->with('success', 'Your project has been updated successfully.');
+        return redirect($project->editRoute)->with('success', 'Your project has been updated successfully.');
     }
 
     /**
