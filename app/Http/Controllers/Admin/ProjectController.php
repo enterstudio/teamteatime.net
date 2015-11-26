@@ -44,7 +44,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $project = Project::create($request->only(['title', 'slug', 'description', 'url_github', 'url_demo', 'url_docs_repo']) + ['user_id' => $request->user()->id]);
+        $project = Project::create($request->only(['title', 'slug', 'description', 'url_github', 'url_demo', 'path_docs']) + ['user_id' => $request->user()->id]);
 
         if ($request->has('tags')) {
             $project->tag($request->input('tags'));
@@ -74,7 +74,7 @@ class ProjectController extends Controller
      */
     public function update(Project $project, Request $request)
     {
-        $project->update($request->only(['title', 'slug', 'description', 'url_github', 'url_demo', 'url_docs_repo']));
+        $project->update($request->only(['title', 'slug', 'description', 'url_github', 'url_demo', 'path_docs']));
 
         if ($request->input('tags') != $project->tagList) {
             if (!$request->has('tags')) {

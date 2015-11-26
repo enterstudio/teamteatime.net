@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
     <script src="{{ elixir('js/all.js') }}"></script>
+    @yield ('head')
 </head>
 <body>
     <div id="wrap">
@@ -93,7 +94,7 @@
     <script>
     $(document).ready(function () {
         $('#main-nav li a').each(function () {
-            if ($(this).attr('href') === window.location.href ) {
+            if ($(this).attr('href') === window.location.href) {
                 $(this).parent('li').addClass('active');
             }
         });

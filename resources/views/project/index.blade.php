@@ -22,8 +22,11 @@
                         </p>
                         <p>{{ $project->description }}</p>
                         <div class="pull-right">
+                            @if ($project->path_docs)
+                                <a href="{{ route('docs.show', ['slug' => $project->slug]) }}" class="btn btn-primary">View docs <i class="fa fa-book fa-fw"></i></a>
+                            @endif
                             @if ($project->url_github)
-                                <a href="{{ $project->url_github }}" class="btn btn-primary">View source on GitHub <i class="fa fa-github fa-fw"></i></a>
+                                <a href="{{ $project->url_github }}" class="btn btn-primary">View on GitHub <i class="fa fa-github fa-fw"></i></a>
                             @endif
                             @if ($project->url_demo)
                                 <a href="{{ $project->url_demo }}" class="btn btn-primary">View demo <i class="fa fa-search fa-fw"></i></a>

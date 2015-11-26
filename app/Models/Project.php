@@ -11,7 +11,7 @@ class Project extends Eloquent
 {
     use Ownable, Taggable;
 
-    protected $fillable = ['user_id', 'title', 'slug', 'description', 'url_github', 'url_demo', 'url_docs'];
+    protected $fillable = ['user_id', 'title', 'slug', 'description', 'url_github', 'url_demo', 'path_docs'];
 
     /**
      * Scope a query to select by slug.
@@ -31,11 +31,6 @@ class Project extends Eloquent
     public function getDescriptionParsedAttribute()
     {
         return Markdown::convertToHtml($this->description);
-    }
-
-    public function getRouteAttribute()
-    {
-        return route('project.show', ['slug' => $this->slug]);
     }
 
     public function getEditRouteAttribute()

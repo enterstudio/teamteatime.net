@@ -54,6 +54,41 @@ body {
         padding-top: 60px;
     }
 
+    #docs {
+        .navigation {
+            ul {
+                padding-left: 1.5rem;
+                list-style: none;
+
+                li.active {
+                    font-weight: bold;
+                }
+            }
+
+            .well > ul {
+                padding: 0;
+            }
+
+            .navbar {
+                background: #f9f9f9;
+                box-shadow: none;
+
+                .navbar-header {
+                    > span {
+                        display: inline-block;
+                        padding: 1.7rem 3rem;
+                    }
+                }
+            }
+        }
+
+        .body {
+            img {
+                width: 100%;
+            }
+        }
+    }
+
     #blog-post {
         .body {
             text-align: justify;

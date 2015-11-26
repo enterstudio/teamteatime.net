@@ -15,19 +15,6 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index', ['projects' => Project::orderBy('created_at', 'desc')->get()]);
-    }
-
-    /**
-     * GET: Show a project.
-     *
-     * @param  string  $slug
-     * @return \Illuminate\Contracts\View
-     */
-    public function show($slug)
-    {
-        $project = Project::slug($slug)->firstOrFail();
-
-        return view('project.show', compact('project'));
+        return view('project.index', ['projects' => Project::orderBy('weight', 'asc')->orderBy('created_at', 'desc')->get()]);
     }
 }

@@ -69,11 +69,12 @@
                 </div>
             </div>
 
-            <div class="form-group{{ ($errors->has('url_docs')) ? ' has-error' : '' }}">
-                <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="url_docs_repo">Documentation URL</label>
+            <div class="form-group{{ ($errors->has('path_docs')) ? ' has-error' : '' }}">
+                <label class="col-md-2 col-sm-3 col-xs-10 control-label" for="path_docs">Documentation system path</label>
                 <div class="col-lg-8 col-md-8 col-sm-5 col-xs-10">
-                    <input name="url_docs" value="{{ !is_null(old('url_docs')) ? old('url_docs_repo') : $project->url_docs }}" type="text" class="form-control">
-                    {!! ($errors->has('url_docs') ? $errors->first('url_docs') : '') !!}
+                    <input name="path_docs" value="{{ !is_null(old('path_docs')) ? old('path_docs') : $project->path_docs }}" type="text" class="form-control">
+                    <span class="help-block">If specified, documentation URLs will be generated from directories and markdown files in this location</span>
+                    {!! ($errors->has('path_docs') ? $errors->first('path_docs') : '') !!}
                 </div>
             </div>
 
