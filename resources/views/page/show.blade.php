@@ -19,7 +19,7 @@
         <div class="col-xs-12">
             <div class="pull-right">
                 <a class="btn btn-info" href="{{ route('admin.page.edit', ['pages' => $page->id]) }}"><i class="fa fa-pencil-square-o"></i> Edit Page</a>
-                <a class="btn btn-danger" href="#delete-page" data-toggle="modal" data-target="#delete-page"><i class="fa fa-times"></i> Delete Page</a>
+                <a class="btn btn-danger" href="#delete-item-{{ $page->id }}" data-toggle="modal" data-target="#delete-item-{{ $page->id }}"><i class="fa fa-times"></i> Delete Page</a>
             </div>
         </div>
         <hr>

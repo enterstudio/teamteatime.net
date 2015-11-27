@@ -17,7 +17,7 @@
     @if (Auth::check())
         <div class="text-right">
             <a class="btn btn-info" href="{{ $post->editRoute }}"><i class="fa fa-pencil-square-o"></i> Edit Post</a>
-            <a class="btn btn-danger" href="#delete-post" data-toggle="modal" data-target="#delete-post"><i class="fa fa-times"></i> Delete Post</a>
+            <a class="btn btn-danger" href="#delete-item-{{ $post->id }}" data-toggle="modal" data-target="#delete-item-{{ $post->id }}"><i class="fa fa-times"></i> Delete Post</a>
         </div>
         <hr>
     @endif

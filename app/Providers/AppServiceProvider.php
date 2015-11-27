@@ -3,9 +3,11 @@
 namespace TTT\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use League\CommonMark\Environment;
+use Webuni\CommonMark\TableExtension\TableExtension;
 
-class AppServiceProvider extends ServiceProvider {
-
+class AppServiceProvider extends ServiceProvider
+{
 	/**
 	 * Bootstrap any application services.
 	 *
@@ -31,6 +33,9 @@ class AppServiceProvider extends ServiceProvider {
 			'Illuminate\Contracts\Auth\Registrar',
 			'TTT\Services\Registrar'
 		);
-	}
 
+        $this->app->resolving('markdown.environment', function (Environment $environment) {
+            $environment->addExtension(new TableExtension());
+        });
+	}
 }

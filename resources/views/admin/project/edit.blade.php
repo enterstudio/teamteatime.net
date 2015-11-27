@@ -19,7 +19,7 @@
     @if ($project->exists)
         <div class="row">
             <div class="col-xs-12 text-right">
-                <a class="btn btn-success" href="{{ $project->route }}"><i class="fa fa-file-text"></i> View Project</a> <a class="btn btn-danger" href="#delete-item-{{ $project->id }}" data-toggle="modal" data-target="#delete-item-{{ $project->id }}"><i class="fa fa-times"></i> Delete Project</a>
+                <a class="btn btn-danger" href="#delete-item-{{ $project->id }}" data-toggle="modal" data-target="#delete-item-{{ $project->id }}"><i class="fa fa-times"></i> Delete Project</a>
             </div>
         </div>
         <hr>

@@ -26,7 +26,7 @@ class DocsController extends Controller
             return redirect("docs/{$project->slug}/introduction.md", 301);
         }
 
-        if (file_exists("{$dir}/{$paths}")) {
+        if (file_exists("{$dir}/{$paths}") && !is_dir("{$dir}/{$paths}")) {
             $content = Markdown::convertToHtml(file_get_contents("{$dir}/{$paths}"));
             return view('docs.show', compact('project', 'navigation', 'content'));
         }

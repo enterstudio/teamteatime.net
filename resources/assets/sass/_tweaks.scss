@@ -35,4 +35,14 @@
     textarea.md-input {
         padding: 2rem;
     }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+            padding: 0.6rem 1rem;
+            border: 1px solid #ddd;
+        }
+    }
 }

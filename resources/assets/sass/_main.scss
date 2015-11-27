@@ -99,3 +99,13 @@ body {
         }
     }
 }
+
+@media only screen and (max-width : 480px) {
+    #body {
+        #splash {
+            h1 {
+                font-size: 4rem;
+            }
+        }
+    }
+}
