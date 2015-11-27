@@ -22,9 +22,9 @@ class PostController extends Controller
 
         if (!is_null($tag)) {
             $with['tag'] = $tag;
-            $with['posts'] = Post::withAnyTag([$tag])->paginate();
+            $with['posts'] = Post::withAnyTag([$tag])->orderBy('created_at', 'desc')->paginate();
         } else {
-            $with['posts'] = Post::paginate();
+            $with['posts'] = Post::orderBy('created_at', 'desc')->paginate();
         }
 
         if (!is_null($year)) {
