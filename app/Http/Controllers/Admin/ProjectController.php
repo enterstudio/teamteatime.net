@@ -50,7 +50,7 @@ class ProjectController extends Controller
             $project->tag($request->input('tags'));
         }
 
-        return redirect($project->route)->with('success', 'Your project has been created successfully.');
+        return redirect('admin/project')->with('success', 'Your project has been created successfully.');
     }
 
     /**
