@@ -20,7 +20,7 @@
                                 <span class="label label-default">{{ $tag->tag_name }}</span>
                             @endforeach
                         </p>
-                        <p>{{ $project->description }}</p>
+                        {!! $project->descriptionParsed !!}
                         <div class="pull-right">
                             @if ($project->path_docs)
                                 <a href="{{ route('docs.show', ['slug' => $project->slug]) }}" class="btn btn-primary">View docs <i class="fa fa-book fa-fw"></i></a>
