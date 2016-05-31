@@ -32,7 +32,7 @@ class PostController extends Controller
             if (!is_null($month)) {
                 $with['month'] = date('F', mktime(0, 0, 0, $month, 10));
             }
-            $with['posts'] = Post::fromArchive($year, $month)->get();
+            $with['posts'] = Post::fromArchive($year, $month)->paginate();
         }
 
         return view('post.index', $with);
