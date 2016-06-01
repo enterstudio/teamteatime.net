@@ -86,9 +86,9 @@
             </div>
         </div>
     </div>
+    <script src="{{ elixir('js/app.js') }}"></script>
     @section ('bottom')
     @show
-    <script src="{{ elixir('js/app.js') }}"></script>
     <script>
     $(document).ready(function () {
         $('#main-nav li a').each(function () {
