@@ -18,14 +18,6 @@ elixir.config.sourcemaps = false;
 elixir(function(mix) {
     mix
         .sass('app.scss', 'public/css/', {includePaths: [paths.bootstrap + 'stylesheets/', paths.bootswatch, paths.fontawesome + 'scss/']})
-        .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
-        .copy(paths.bootstrapmd + 'css/bootstrap-markdown.min.css', 'public/css')
-        .copy(paths.fontawesome + 'fonts/**', 'public/fonts')
-        .styles([
-            './public/css/app.css',
-            paths.bootstrapmd + 'css/bootstrap-markdown.min.css',
-            paths.bootstraptagsinput + 'dist/bootstrap-tagsinput.css',
-        ], 'public/css/all.css', './')
         .scripts([
             paths.jquery + 'dist/jquery.js',
             paths.bootstrap + 'javascripts/bootstrap.js',
@@ -33,7 +25,8 @@ elixir(function(mix) {
             paths.bootstraptypeahead + 'bootstrap3-typeahead.min.js',
             paths.bootstraptagsinput + 'dist/bootstrap-tagsinput.js',
             paths.marked + 'lib/marked.js',
-            paths.tomarkdown + 'src/to-markdown.js'
-        ], 'public/js/all.js', './')
-        .version(['css/all.css', 'js/all.js']);
+            paths.tomarkdown + 'src/to-markdown.js',
+            'resources/assets/js/vendor/prism.js'
+        ], 'public/js/app.js', './')
+        .version(['css/app.css', 'js/app.js']);
 });

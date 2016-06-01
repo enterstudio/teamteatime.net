@@ -3,8 +3,11 @@
 @import "variables";
 @import "bootstrap/glyphicons";
 @import "bootstrap";
+@import "vendor/bootstrap-markdown";
+@import "vendor/bootstrap-tagsinput";
 @import "paper/bootswatch";
 @import "font-awesome";
 @import "tweaks";
 @import "utils";
+@import "vendor/prism";
 @import "main";

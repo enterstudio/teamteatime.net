@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield ('title') - TeamTeaTime</title>
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
-    <script src="{{ elixir('js/all.js') }}"></script>
+    <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
     @yield ('head')
 </head>
-<body>
+<body class="language-php">
     <div id="wrap">
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -89,6 +88,7 @@
     </div>
     @section ('bottom')
     @show
+    <script src="{{ elixir('js/app.js') }}"></script>
     <script>
     $(document).ready(function () {
         $('#main-nav li a').each(function () {
